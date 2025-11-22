@@ -3,56 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel Booking Management Platform</title>
+    <title>Hotel Booking Manager</title>
     <style>
         :root {
-            --color-white: rgba(255, 255, 255, 1);
-            --color-cream-50: rgba(252, 252, 249, 1);
-            --color-cream-100: rgba(255, 255, 253, 1);
-            --color-gray-200: rgba(245, 245, 245, 1);
-            --color-gray-300: rgba(167, 169, 169, 1);
-            --color-slate-500: rgba(98, 108, 113, 1);
-            --color-brown-600: rgba(94, 82, 64, 1);
-            --color-charcoal-700: rgba(31, 33, 33, 1);
-            --color-charcoal-800: rgba(38, 40, 40, 1);
-            --color-slate-900: rgba(19, 52, 59, 1);
-            --color-teal-500: rgba(33, 128, 141, 1);
-            --color-teal-600: rgba(29, 116, 128, 1);
-            --color-teal-700: rgba(26, 104, 115, 1);
-            --color-red-500: rgba(192, 21, 47, 1);
-            --color-orange-500: rgba(168, 75, 47, 1);
-            --color-brown-600-rgb: 94, 82, 64;
-            --color-teal-500-rgb: 33, 128, 141;
-            --color-background: var(--color-cream-50);
-            --color-surface: var(--color-cream-100);
-            --color-text: var(--color-slate-900);
-            --color-text-secondary: var(--color-slate-500);
-            --color-primary: var(--color-teal-500);
-            --color-primary-hover: var(--color-teal-600);
-            --color-border: rgba(var(--color-brown-600-rgb), 0.2);
-            --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
-            --color-success: var(--color-teal-500);
-            --color-error: var(--color-red-500);
-            --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --color-background: #fcfcf9;
+            --color-surface: #fffffd;
+            --color-text: #13343b;
+            --color-text-secondary: #626c71;
+            --color-primary: #21808d;
+            --color-primary-hover: #1d7480;
+            --color-border: rgba(94, 82, 64, 0.2);
+            --color-card-border: rgba(94, 82, 64, 0.12);
+            --color-error: #c0152f;
+            --color-success: #21808d;
+            --color-warning: #a84b2f;
+            --radius-base: 8px;
+            --radius-lg: 12px;
             --space-8: 8px;
             --space-12: 12px;
             --space-16: 16px;
-            --space-20: 20px;
             --space-24: 24px;
-            --radius-base: 8px;
-            --radius-lg: 12px;
         }
 
         @media (prefers-color-scheme: dark) {
             :root {
-                --color-gray-200-rgb: 245, 245, 245;
-                --color-gray-400-rgb: 119, 124, 124;
-                --color-background: var(--color-charcoal-700);
-                --color-surface: var(--color-charcoal-800);
-                --color-text: var(--color-gray-200);
-                --color-text-secondary: rgba(var(--color-gray-200-rgb), 0.7);
-                --color-border: rgba(var(--color-gray-400-rgb), 0.3);
-                --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
+                --color-background: #1f2121;
+                --color-surface: #262828;
+                --color-text: #f5f5f5;
+                --color-text-secondary: rgba(167, 169, 169, 0.7);
+                --color-primary: #32b8c6;
+                --color-primary-hover: #2da6b2;
+                --color-border: rgba(119, 124, 124, 0.3);
+                --color-card-border: rgba(119, 124, 124, 0.2);
             }
         }
 
@@ -63,11 +45,11 @@
         }
 
         body {
-            font-family: var(--font-family-base);
-            background-color: var(--color-background);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--color-background);
             color: var(--color-text);
+            padding: var(--space-24);
             line-height: 1.6;
-            padding: var(--space-20);
         }
 
         .container {
@@ -75,43 +57,40 @@
             margin: 0 auto;
         }
 
-        header {
-            margin-bottom: var(--space-24);
-            padding-bottom: var(--space-16);
-            border-bottom: 2px solid var(--color-border);
-        }
-
         h1 {
             font-size: 28px;
-            margin-bottom: var(--space-8);
+            margin-bottom: var(--space-24);
+            color: var(--color-text);
         }
 
         .tabs {
             display: flex;
             gap: var(--space-8);
             margin-bottom: var(--space-24);
-            flex-wrap: wrap;
+            border-bottom: 2px solid var(--color-border);
+            padding-bottom: 0;
         }
 
         .tab {
-            padding: var(--space-12) var(--space-20);
-            background-color: var(--color-surface);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-base);
+            padding: var(--space-12) var(--space-24);
+            background: none;
+            border: none;
+            color: var(--color-text-secondary);
             cursor: pointer;
-            transition: all 0.2s;
+            font-size: 15px;
             font-weight: 500;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s;
+            margin-bottom: -2px;
         }
 
         .tab:hover {
-            background-color: var(--color-primary);
-            color: white;
+            color: var(--color-text);
         }
 
         .tab.active {
-            background-color: var(--color-primary);
-            color: white;
-            border-color: var(--color-primary);
+            color: var(--color-primary);
+            border-bottom-color: var(--color-primary);
         }
 
         .tab-content {
@@ -123,16 +102,16 @@
         }
 
         .card {
-            background-color: var(--color-surface);
+            background: var(--color-surface);
             border: 1px solid var(--color-card-border);
             border-radius: var(--radius-lg);
-            padding: var(--space-20);
-            margin-bottom: var(--space-20);
+            padding: var(--space-24);
+            margin-bottom: var(--space-24);
         }
 
         .form-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: var(--space-16);
             margin-bottom: var(--space-16);
         }
@@ -143,59 +122,68 @@
         }
 
         label {
-            margin-bottom: var(--space-8);
+            font-size: 13px;
             font-weight: 500;
-            font-size: 14px;
-        }
-
-        input, select, textarea {
-            padding: var(--space-12);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-base);
-            font-size: 14px;
-            background-color: var(--color-surface);
+            margin-bottom: 6px;
             color: var(--color-text);
         }
 
+        input, select, textarea {
+            padding: var(--space-8) var(--space-12);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-base);
+            font-size: 14px;
+            background: var(--color-surface);
+            color: var(--color-text);
+            transition: border-color 0.2s;
+        }
+
         input:focus, select:focus, textarea:focus {
-            outline: 2px solid var(--color-primary);
+            outline: none;
             border-color: var(--color-primary);
         }
 
         .btn {
-            padding: var(--space-12) var(--space-20);
+            padding: var(--space-8) var(--space-16);
             border: none;
             border-radius: var(--radius-base);
+            font-size: 14px;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s;
-            font-size: 14px;
         }
 
         .btn-primary {
-            background-color: var(--color-primary);
+            background: var(--color-primary);
             color: white;
         }
 
         .btn-primary:hover {
-            background-color: var(--color-primary-hover);
+            background: var(--color-primary-hover);
         }
 
         .btn-secondary {
-            background-color: var(--color-surface);
+            background: var(--color-surface);
             color: var(--color-text);
             border: 1px solid var(--color-border);
         }
 
+        .btn-secondary:hover {
+            background: rgba(94, 82, 64, 0.05);
+        }
+
         .btn-danger {
-            background-color: var(--color-error);
+            background: var(--color-error);
             color: white;
         }
 
-        .btn-group {
-            display: flex;
-            gap: var(--space-8);
-            flex-wrap: wrap;
+        .btn-small {
+            padding: 4px 12px;
+            font-size: 13px;
+        }
+
+        .table-container {
+            overflow-x: auto;
         }
 
         table {
@@ -211,1093 +199,1260 @@
         }
 
         th {
-            background-color: var(--color-surface);
+            background: rgba(33, 128, 141, 0.08);
             font-weight: 600;
+            font-size: 13px;
+            color: var(--color-text);
+        }
+
+        td {
+            font-size: 14px;
         }
 
         tr:hover {
-            background-color: rgba(var(--color-teal-500-rgb), 0.05);
+            background: rgba(33, 128, 141, 0.04);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: var(--space-8);
         }
 
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: var(--space-16);
-            margin-bottom: var(--space-20);
+            margin-bottom: var(--space-24);
         }
 
         .stat-card {
-            background-color: var(--color-surface);
+            background: var(--color-surface);
             border: 1px solid var(--color-card-border);
             border-radius: var(--radius-base);
             padding: var(--space-16);
-            text-align: center;
         }
 
         .stat-value {
             font-size: 32px;
-            font-weight: 700;
+            font-weight: 600;
             color: var(--color-primary);
-            margin-bottom: var(--space-8);
+            margin-bottom: 4px;
         }
 
         .stat-label {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--color-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .file-input-wrapper {
-            position: relative;
-            overflow: hidden;
             display: inline-block;
         }
 
-        .file-input-wrapper input[type=file] {
-            position: absolute;
-            left: -9999px;
+        .file-input {
+            display: none;
         }
 
-        .message {
+        .toolbar {
+            display: flex;
+            gap: var(--space-12);
+            flex-wrap: wrap;
+            margin-bottom: var(--space-16);
+        }
+
+        .room-type-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-8);
+            margin-top: var(--space-12);
+        }
+
+        .room-type-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             padding: var(--space-12);
+            background: rgba(33, 128, 141, 0.05);
             border-radius: var(--radius-base);
-            margin-bottom: var(--space-16);
+            border: 1px solid var(--color-border);
         }
 
-        .message.success {
-            background-color: rgba(var(--color-teal-500-rgb), 0.1);
-            color: var(--color-success);
-            border: 1px solid var(--color-success);
+        .inventory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: var(--space-8);
+            margin-top: var(--space-16);
         }
 
-        .message.error {
-            background-color: rgba(192, 21, 47, 0.1);
-            color: var(--color-error);
-            border: 1px solid var(--color-error);
+        .inventory-date {
+            padding: var(--space-12);
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-base);
+            text-align: center;
         }
 
-        .action-btn {
-            padding: var(--space-8) var(--space-12);
+        .inventory-date .date {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .inventory-date .available {
+            font-size: 18px;
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+
+        .inventory-date .total {
             font-size: 12px;
-            cursor: pointer;
-            margin-right: var(--space-8);
+            color: var(--color-text-secondary);
         }
 
-        .search-box {
-            margin-bottom: var(--space-16);
-            width: 100%;
-            max-width: 400px;
+        .inventory-date.low {
+            border-color: var(--color-warning);
         }
 
-        @media (max-width: 768px) {
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
+        .inventory-date.low .available {
+            color: var(--color-warning);
+        }
+
+        .inventory-date.full {
+            border-color: var(--color-error);
+            opacity: 0.6;
+        }
+
+        .inventory-date.full .available {
+            color: var(--color-error);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>🏨 Hotel Booking Management Platform</h1>
-            <p style="color: var(--color-text-secondary);">Manage bookings, customers, and hotels with comprehensive reporting</p>
-        </header>
-
-        <div id="message-container"></div>
+        <h1>🏨 Hotel Booking Management Platform</h1>
 
         <div class="tabs">
-            <button class="tab active" data-tab="dashboard">Dashboard</button>
-            <button class="tab" data-tab="bookings">Bookings</button>
-            <button class="tab" data-tab="customers">Customers</button>
-            <button class="tab" data-tab="hotels">Hotels</button>
-            <button class="tab" data-tab="import-export">Import/Export</button>
+            <button class="tab active" onclick="showTab('dashboard')">Dashboard</button>
+            <button class="tab" onclick="showTab('hotels')">Hotels</button>
+            <button class="tab" onclick="showTab('customers')">Customers</button>
+            <button class="tab" onclick="showTab('bookings')">Bookings</button>
+            <button class="tab" onclick="showTab('inventory')">Room Inventory</button>
         </div>
 
         <!-- Dashboard Tab -->
-        <div class="tab-content active" id="dashboard-tab">
+        <div id="dashboard" class="tab-content active">
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-value" id="total-bookings">0</div>
+                    <div class="stat-value" id="totalBookings">0</div>
                     <div class="stat-label">Total Bookings</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-value" id="total-customers">0</div>
-                    <div class="stat-label">Total Customers</div>
+                    <div class="stat-value" id="totalNights">0</div>
+                    <div class="stat-label">Total Room Nights</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-value" id="total-hotels">0</div>
-                    <div class="stat-label">Total Hotels</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" id="total-nights">0</div>
-                    <div class="stat-label">Total Nights</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" id="total-revenue">$0</div>
+                    <div class="stat-value" id="totalRevenue">$0</div>
                     <div class="stat-label">Total Revenue</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="activeBookings">0</div>
+                    <div class="stat-label">Active Bookings</div>
                 </div>
             </div>
 
             <div class="card">
                 <h2>Recent Bookings</h2>
-                <div id="recent-bookings-table"></div>
+                <div class="table-container">
+                    <table id="recentBookingsTable">
+                        <thead>
+                            <tr>
+                                <th>Customer</th>
+                                <th>Hotel</th>
+                                <th>Room Type</th>
+                                <th>Check-in</th>
+                                <th>Check-out</th>
+                                <th>Nights</th>
+                                <th>Total Cost</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
             </div>
 
-            <div class="card">
-                <h2>Bookings by Hotel</h2>
-                <div id="hotel-stats"></div>
-            </div>
-        </div>
-
-        <!-- Bookings Tab -->
-        <div class="tab-content" id="bookings-tab">
-            <div class="card">
-                <h2>Add New Booking</h2>
-                <form id="booking-form">
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="booking-customer">Customer *</label>
-                            <select id="booking-customer" required>
-                                <option value="">Select Customer</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="booking-hotel">Hotel *</label>
-                            <select id="booking-hotel" required>
-                                <option value="">Select Hotel</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="booking-checkin">Check-in Date *</label>
-                            <input type="date" id="booking-checkin" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="booking-checkout">Check-out Date *</label>
-                            <input type="date" id="booking-checkout" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="booking-rate">Nightly Rate ($) *</label>
-                            <input type="number" id="booking-rate" step="0.01" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="booking-extra-rate">Extra Night Rate ($)</label>
-                            <input type="number" id="booking-extra-rate" step="0.01" value="0">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="booking-notes">Notes</label>
-                        <textarea id="booking-notes" rows="3"></textarea>
-                    </div>
-                    <div class="btn-group" style="margin-top: var(--space-16);">
-                        <button type="submit" class="btn btn-primary">Add Booking</button>
-                        <button type="button" class="btn btn-secondary" onclick="document.getElementById('booking-form').reset()">Clear</button>
-                    </div>
-                </form>
-            </div>
-
-            <div class="card">
-                <h2>All Bookings</h2>
-                <input type="text" id="search-bookings" class="search-box" placeholder="Search bookings...">
-                <div id="bookings-table"></div>
-            </div>
-        </div>
-
-        <!-- Customers Tab -->
-        <div class="tab-content" id="customers-tab">
-            <div class="card">
-                <h2>Add New Customer</h2>
-                <form id="customer-form">
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="customer-name">Full Name *</label>
-                            <input type="text" id="customer-name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="customer-email">Email *</label>
-                            <input type="email" id="customer-email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="customer-phone">Phone</label>
-                            <input type="tel" id="customer-phone">
-                        </div>
-                        <div class="form-group">
-                            <label for="customer-company">Company</label>
-                            <input type="text" id="customer-company">
-                        </div>
-                    </div>
-                    <div class="btn-group" style="margin-top: var(--space-16);">
-                        <button type="submit" class="btn btn-primary">Add Customer</button>
-                        <button type="button" class="btn btn-secondary" onclick="document.getElementById('customer-form').reset()">Clear</button>
-                    </div>
-                </form>
-            </div>
-
-            <div class="card">
-                <h2>All Customers</h2>
-                <input type="text" id="search-customers" class="search-box" placeholder="Search customers...">
-                <div id="customers-table"></div>
+            <div class="toolbar">
+                <button class="btn btn-primary" onclick="exportToExcel()">📊 Export All Data to Excel</button>
             </div>
         </div>
 
         <!-- Hotels Tab -->
-        <div class="tab-content" id="hotels-tab">
+        <div id="hotels" class="tab-content">
             <div class="card">
-                <h2>Add New Hotel</h2>
-                <form id="hotel-form">
+                <h2>Add Hotel</h2>
+                <form id="hotelForm">
                     <div class="form-grid">
                         <div class="form-group">
-                            <label for="hotel-name">Hotel Name *</label>
-                            <input type="text" id="hotel-name" required>
+                            <label for="hotelName">Hotel Name *</label>
+                            <input type="text" id="hotelName" required>
                         </div>
                         <div class="form-group">
-                            <label for="hotel-location">Location *</label>
-                            <input type="text" id="hotel-location" required>
+                            <label for="hotelLocation">Location</label>
+                            <input type="text" id="hotelLocation">
                         </div>
                         <div class="form-group">
-                            <label for="hotel-standard-rate">Standard Rate ($)</label>
-                            <input type="number" id="hotel-standard-rate" step="0.01">
-                        </div>                    <div class="form-group">
-                        <label for="hotel-rooms">Total Rooms</label>
-                        <input type="number" id="hotel-rooms">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="hotel-amenities">Amenities</label>
-                    <textarea id="hotel-amenities" rows="3"></textarea>
-                </div>
-                
-                <h3 style="margin-top: var(--space-20); margin-bottom: var(--space-16);">Room Types</h3>
-                <div id="room-types-container">
-                    <div class="room-type-entry" style="display: grid; grid-template-columns: 2fr 1fr 1fr 60px; gap: var(--space-8); margin-bottom: var(--space-8); align-items: end;">
-                        <div class="form-group" style="margin-bottom: 0;">
-                            <label>Room Type Name</label>
-                            <input type="text" class="room-type-name" placeholder="e.g., Deluxe Suite">
+                            <label for="hotelContact">Contact</label>
+                            <input type="text" id="hotelContact">
                         </div>
-                        <div class="form-group" style="margin-bottom: 0;">
-                            <label>Available Rooms</label>
-                            <input type="number" class="room-type-count" min="0" placeholder="0">
-                        </div>
-                        <div class="form-group" style="margin-bottom: 0;">
-                            <label>Rate ($)</label>
-                            <input type="number" class="room-type-rate" step="0.01" min="0" placeholder="0.00">
-                        </div>
-                        <button type="button" class="btn btn-danger" onclick="removeRoomType(this)" style="padding: var(--space-8);">✕</button>
                     </div>
-                </div>
-                <button type="button" class="btn btn-secondary" onclick="addRoomTypeField()" style="margin-top: var(--space-8);">+ Add Room Type</button>
-                    <div class="btn-group" style="margin-top: var(--space-16);">
-                        <button type="submit" class="btn btn-primary">Add Hotel</button>
-                        <button type="button" class="btn btn-secondary" onclick="document.getElementById('hotel-form').reset()">Clear</button>
-                    </div>
+                    <button type="submit" class="btn btn-primary">Add Hotel</button>
                 </form>
+
+                <h3 style="margin-top: 24px;">Room Types</h3>
+                <div class="form-grid" style="margin-top: 16px;">
+                    <div class="form-group">
+                        <label for="roomTypeName">Room Type Name *</label>
+                        <input type="text" id="roomTypeName">
+                    </div>
+                    <div class="form-group">
+                        <label for="roomTypeRate">Nightly Rate *</label>
+                        <input type="number" id="roomTypeRate" min="0" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label for="roomTypeHotel">Hotel *</label>
+                        <select id="roomTypeHotel"></select>
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="addRoomType()">Add Room Type</button>
+
+                <div id="roomTypesList" class="room-type-list"></div>
+            </div>
+
+            <div class="toolbar">
+                <label class="btn btn-secondary file-input-wrapper">
+                    📁 Import Hotels (CSV)
+                    <input type="file" class="file-input" id="importHotels" accept=".csv" onchange="importHotels(event)">
+                </label>
+                <button class="btn btn-secondary" onclick="exportHotels()">💾 Export Hotels</button>
             </div>
 
             <div class="card">
-                <h2>All Hotels</h2>
-                <input type="text" id="search-hotels" class="search-box" placeholder="Search hotels...">
-                <div id="hotels-table"></div>
+                <h2>Hotels List</h2>
+                <div class="table-container">
+                    <table id="hotelsTable">
+                        <thead>
+                            <tr>
+                                <th>Hotel Name</th>
+                                <th>Location</th>
+                                <th>Contact</th>
+                                <th>Room Types</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
             </div>
         </div>
 
-        <!-- Import/Export Tab -->
-        <div class="tab-content" id="import-export-tab">
+        <!-- Customers Tab -->
+        <div id="customers" class="tab-content">
             <div class="card">
-                <h2>📥 Import Data</h2>
-                <p style="margin-bottom: var(--space-16); color: var(--color-text-secondary);">Import customers, hotels, or bookings from Excel files (.xlsx, .xls, or .csv)</p>
-                
-                <div class="form-group" style="margin-bottom: var(--space-16);">
-                    <label>Import Type</label>
-                    <select id="import-type">
-                        <option value="customers">Customers</option>
-                        <option value="hotels">Hotels</option>
-                        <option value="bookings">Bookings</option>
-                    </select>
-                </div>
+                <h2>Add Customer</h2>
+                <form id="customerForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="customerName">Customer Name *</label>
+                            <input type="text" id="customerName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customerEmail">Email</label>
+                            <input type="email" id="customerEmail">
+                        </div>
+                        <div class="form-group">
+                            <label for="customerPhone">Phone</label>
+                            <input type="tel" id="customerPhone">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Customer</button>
+                </form>
+            </div>
 
-                <div class="file-input-wrapper">
-                    <button class="btn btn-secondary">Choose File</button>
-                    <input type="file" id="import-file" accept=".xlsx,.xls,.csv">
-                </div>
-                <button class="btn btn-primary" onclick="importData()" style="margin-left: var(--space-8);">Import</button>
+            <div class="toolbar">
+                <label class="btn btn-secondary file-input-wrapper">
+                    📁 Import Customers (CSV)
+                    <input type="file" class="file-input" id="importCustomers" accept=".csv" onchange="importCustomers(event)">
+                </label>
+                <button class="btn btn-secondary" onclick="exportCustomers()">💾 Export Customers</button>
+            </div>
 
-                <div style="margin-top: var(--space-20); padding: var(--space-16); background-color: rgba(var(--color-teal-500-rgb), 0.05); border-radius: var(--radius-base);">
-                    <strong>Expected Format:</strong>
-                    <ul style="margin-top: var(--space-8); margin-left: var(--space-20);">
-                        <li><strong>Customers:</strong> Name, Email, Phone, Company</li>
-                        <li><strong>Hotels:</strong> Name, Location, Standard Rate, Total Rooms, Amenities</li>
-                        <li><strong>Bookings:</strong> Customer Email, Hotel Name, Check-in Date (YYYY-MM-DD), Check-out Date (YYYY-MM-DD), Nightly Rate, Extra Night Rate, Notes</li>
-                    </ul>
+            <div class="card">
+                <h2>Customers List</h2>
+                <div class="table-container">
+                    <table id="customersTable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Total Bookings</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bookings Tab -->
+        <div id="bookings" class="tab-content">
+            <div class="card">
+                <h2>Create Booking</h2>
+                <form id="bookingForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="bookingCustomer">Customer *</label>
+                            <select id="bookingCustomer" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label for="bookingHotel">Hotel *</label>
+                            <select id="bookingHotel" required onchange="updateRoomTypes()"></select>
+                        </div>
+                        <div class="form-group">
+                            <label for="bookingRoomType">Room Type *</label>
+                            <select id="bookingRoomType" required onchange="updateBookingRate()"></select>
+                        </div>
+                        <div class="form-group">
+                            <label for="bookingCheckIn">Check-in Date *</label>
+                            <input type="date" id="bookingCheckIn" required onchange="calculateNights()">
+                        </div>
+                        <div class="form-group">
+                            <label for="bookingCheckOut">Check-out Date *</label>
+                            <input type="date" id="bookingCheckOut" required onchange="calculateNights()">
+                        </div>
+                        <div class="form-group">
+                            <label for="bookingNights">Total Nights</label>
+                            <input type="number" id="bookingNights" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="bookingRate">Nightly Rate</label>
+                            <input type="number" id="bookingRate" step="0.01" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="bookingTotal">Total Cost</label>
+                            <input type="number" id="bookingTotal" readonly>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Create Booking</button>
+                </form>
+            </div>
+
+            <div class="toolbar">
+                <label class="btn btn-secondary file-input-wrapper">
+                    📁 Import Bookings (CSV)
+                    <input type="file" class="file-input" id="importBookings" accept=".csv" onchange="importBookings(event)">
+                </label>
+                <button class="btn btn-secondary" onclick="exportBookings()">💾 Export Bookings</button>
+            </div>
+
+            <div class="card">
+                <h2>Bookings List</h2>
+                <div class="table-container">
+                    <table id="bookingsTable">
+                        <thead>
+                            <tr>
+                                <th>Booking ID</th>
+                                <th>Customer</th>
+                                <th>Hotel</th>
+                                <th>Room Type</th>
+                                <th>Check-in</th>
+                                <th>Check-out</th>
+                                <th>Nights</th>
+                                <th>Rate/Night</th>
+                                <th>Total Cost</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Room Inventory Tab -->
+        <div id="inventory" class="tab-content">
+            <div class="card">
+                <h2>Manage Room Inventory</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="inventoryHotel">Hotel *</label>
+                        <select id="inventoryHotel" onchange="loadInventory()"></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="inventoryRoomType">Room Type *</label>
+                        <select id="inventoryRoomType" onchange="loadInventory()"></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="inventoryDate">Date *</label>
+                        <input type="date" id="inventoryDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="inventoryTotal">Total Rooms Available *</label>
+                        <input type="number" id="inventoryTotal" min="0">
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="setInventory()">Set Inventory</button>
+                <button class="btn btn-secondary" onclick="setInventoryRange()">Set for Date Range</button>
+            </div>
+
+            <div class="card">
+                <h2>Room Availability Overview</h2>
+                <div id="inventoryOverview">
+                    <p style="color: var(--color-text-secondary);">Select a hotel and room type to view inventory.</p>
                 </div>
             </div>
 
             <div class="card">
-                <h2>📤 Export Data</h2>
-                <p style="margin-bottom: var(--space-16); color: var(--color-text-secondary);">Export all data to Excel for reporting and analysis</p>
-                
-                <div class="btn-group">
-                    <button class="btn btn-primary" onclick="exportToExcel('customers')">Export Customers</button>
-                    <button class="btn btn-primary" onclick="exportToExcel('hotels')">Export Hotels</button>
-                    <button class="btn btn-primary" onclick="exportToExcel('bookings')">Export Bookings</button>
-                    <button class="btn btn-primary" onclick="exportToExcel('all')">Export All Data</button>
+                <h2>Reconciliation Summary</h2>
+                <div id="reconciliationSummary">
+                    <p style="color: var(--color-text-secondary);">Select a hotel and room type to view reconciliation data.</p>
                 </div>
-            </div>
-
-            <div class="card">
-                <h2>🗑️ Data Management</h2>
-                <p style="margin-bottom: var(--space-16); color: var(--color-text-secondary);">Clear all data from the system</p>
-                <button class="btn btn-danger" onclick="clearAllData()">Clear All Data</button>
             </div>
         </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <script>
-        // IndexedDB Setup
-        let db;
-        const DB_NAME = 'HotelBookingDB';
-        const DB_VERSION = 1;
+        // Data Storage (Local Browser Database)
+        let hotels = [];
+        let customers = [];
+        let bookings = [];
+        let roomTypes = [];
+        let inventory = {}; // { hotelId-roomTypeId-date: { total, booked } }
 
-        function initDB() {
-            return new Promise((resolve, reject) => {
-                const request = indexedDB.open(DB_NAME, DB_VERSION);
+        // Initialize
+        window.onload = function() {
+            loadData();
+        };
 
-                request.onerror = () => reject(request.error);
-                request.onsuccess = () => {
-                    db = request.result;
-                    resolve(db);
-                };
-
-                request.onupgradeneeded = (event) => {
-                    db = event.target.result;
-
-                    if (!db.objectStoreNames.contains('customers')) {
-                        const customerStore = db.createObjectStore('customers', { keyPath: 'id', autoIncrement: true });
-                        customerStore.createIndex('email', 'email', { unique: true });
-                        customerStore.createIndex('name', 'name', { unique: false });
-                    }
-
-                    if (!db.objectStoreNames.contains('hotels')) {
-                        const hotelStore = db.createObjectStore('hotels', { keyPath: 'id', autoIncrement: true });
-                        hotelStore.createIndex('name', 'name', { unique: false });
-                    }
-
-                    if (!db.objectStoreNames.contains('bookings')) {
-                        const bookingStore = db.createObjectStore('bookings', { keyPath: 'id', autoIncrement: true });
-                        bookingStore.createIndex('customerId', 'customerId', { unique: false });
-                        bookingStore.createIndex('hotelId', 'hotelId', { unique: false });
-                    }
-                };
-            });
+        function loadData() {
+            const savedData = localStorage.getItem('hotelBookingData');
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                hotels = data.hotels || [];
+                customers = data.customers || [];
+                bookings = data.bookings || [];
+                roomTypes = data.roomTypes || [];
+                inventory = data.inventory || {};
+            }
+            initializeDropdowns();
+            renderAll();
         }
 
-        // CRUD Operations
-        function addRecord(storeName, data) {
-            return new Promise((resolve, reject) => {
-                const transaction = db.transaction([storeName], 'readwrite');
-                const store = transaction.objectStore(storeName);
-                const request = store.add(data);
-
-                request.onsuccess = () => resolve(request.result);
-                request.onerror = () => reject(request.error);
-            });
-        }
-
-        function getAllRecords(storeName) {
-            return new Promise((resolve, reject) => {
-                const transaction = db.transaction([storeName], 'readonly');
-                const store = transaction.objectStore(storeName);
-                const request = store.getAll();
-
-                request.onsuccess = () => resolve(request.result);
-                request.onerror = () => reject(request.error);
-            });
-        }
-
-        function updateRecord(storeName, data) {
-            return new Promise((resolve, reject) => {
-                const transaction = db.transaction([storeName], 'readwrite');
-                const store = transaction.objectStore(storeName);
-                const request = store.put(data);
-
-                request.onsuccess = () => resolve(request.result);
-                request.onerror = () => reject(request.error);
-            });
-        }
-
-        function deleteRecord(storeName, id) {
-            return new Promise((resolve, reject) => {
-                const transaction = db.transaction([storeName], 'readwrite');
-                const store = transaction.objectStore(storeName);
-                const request = store.delete(id);
-
-                request.onsuccess = () => resolve();
-                request.onerror = () => reject(request.error);
-            });
-        }
-
-        // UI Functions
-        function showMessage(message, type = 'success') {
-            const container = document.getElementById('message-container');
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${type}`;
-            messageDiv.textContent = message;
-            container.appendChild(messageDiv);
-
-            setTimeout(() => {
-                messageDiv.remove();
-            }, 5000);
-        }
-
-        // Tab Navigation
-        document.querySelectorAll('.tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-                
-                tab.classList.add('active');
-                document.getElementById(`${tab.dataset.tab}-tab`).classList.add('active');
-
-                if (tab.dataset.tab === 'dashboard') {
-                    updateDashboard();
-                }
-            });
-        });
-
-        // Customer Management
-        document.getElementById('customer-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const customer = {
-                name: document.getElementById('customer-name').value,
-                email: document.getElementById('customer-email').value,
-                phone: document.getElementById('customer-phone').value,
-                company: document.getElementById('customer-company').value,
-                createdAt: new Date().toISOString()
+        function saveData() {
+            const data = {
+                hotels,
+                customers,
+                bookings,
+                roomTypes,
+                inventory
             };
-
-            try {
-                await addRecord('customers', customer);
-                showMessage('Customer added successfully!');
-                document.getElementById('customer-form').reset();
-                loadCustomers();
-                updateCustomerDropdown();
-            } catch (error) {
-                showMessage('Error adding customer: ' + error.message, 'error');
-            }
-        });
-
-        async function loadCustomers() {
-            const customers = await getAllRecords('customers');
-            const searchTerm = document.getElementById('search-customers').value.toLowerCase();
-            const filtered = customers.filter(c => 
-                c.name.toLowerCase().includes(searchTerm) ||
-                c.email.toLowerCase().includes(searchTerm) ||
-                (c.company && c.company.toLowerCase().includes(searchTerm))
-            );
-
-            const tableHtml = `
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>Company</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ${filtered.map(c => `
-                            <tr>
-                                <td>${c.name}</td>
-                                <td>${c.email}</td>
-                                <td>${c.phone || '-'}</td>
-                                <td>${c.company || '-'}</td>
-                                <td>
-                                    <button class="btn btn-danger action-btn" onclick="deleteCustomer(${c.id})">Delete</button>
-                                </td>
-                            </tr>
-                        `).join('')}
-                    </tbody>
-                </table>
-            `;
-
-            document.getElementById('customers-table').innerHTML = tableHtml;
+            localStorage.setItem('hotelBookingData', JSON.stringify(data));
         }
 
-        async function deleteCustomer(id) {
-            if (confirm('Are you sure you want to delete this customer?')) {
-                await deleteRecord('customers', id);
-                showMessage('Customer deleted successfully!');
-                loadCustomers();
-                updateCustomerDropdown();
-            }
-        }
-
-        async function updateCustomerDropdown() {
-            const customers = await getAllRecords('customers');
-            const select = document.getElementById('booking-customer');
-            select.innerHTML = '<option value="">Select Customer</option>';
-            customers.forEach(c => {
-                select.innerHTML += `<option value="${c.id}">${c.name} (${c.email})</option>`;
+        // Tab Management
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
             });
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+
+            if (tabName === 'dashboard') {
+                updateDashboard();
+            }
         }
 
         // Hotel Management
-        document.getElementById('hotel-form').addEventListener('submit', async (e) => {
+        document.getElementById('hotelForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Collect room types
-            const roomTypes = [];
-            document.querySelectorAll('.room-type-entry').forEach(entry => {
-                const name = entry.querySelector('.room-type-name').value.trim();
-                const count = parseInt(entry.querySelector('.room-type-count').value) || 0;
-                const rate = parseFloat(entry.querySelector('.room-type-rate').value) || 0;
-                
-                if (name) {
-                    roomTypes.push({ name, availableRooms: count, rate });
-                }
-            });
-
             const hotel = {
-                name: document.getElementById('hotel-name').value,
-                location: document.getElementById('hotel-location').value,
-                standardRate: parseFloat(document.getElementById('hotel-standard-rate').value) || 0,
-                totalRooms: parseInt(document.getElementById('hotel-rooms').value) || 0,
-                amenities: document.getElementById('hotel-amenities').value,
-                roomTypes: roomTypes,
-                createdAt: new Date().toISOString()
+                id: Date.now(),
+                name: document.getElementById('hotelName').value,
+                location: document.getElementById('hotelLocation').value,
+                contact: document.getElementById('hotelContact').value
             };
-
-            try {
-                await addRecord('hotels', hotel);
-                showMessage('Hotel added successfully!');
-                document.getElementById('hotel-form').reset();
-                loadHotels();
-                updateHotelDropdown();
-            } catch (error) {
-                showMessage('Error adding hotel: ' + error.message, 'error');
-            }
+            
+            hotels.push(hotel);
+            saveData();
+            this.reset();
+            renderAll();
+            alert('Hotel added successfully!');
         });
 
-        async function loadHotels() {
-            const hotels = await getAllRecords('hotels');
-            const searchTerm = document.getElementById('search-hotels').value.toLowerCase();
-            const filtered = hotels.filter(h => 
-                h.name.toLowerCase().includes(searchTerm) ||
-                h.location.toLowerCase().includes(searchTerm)
-            );
+        function addRoomType() {
+            const name = document.getElementById('roomTypeName').value;
+            const rate = parseFloat(document.getElementById('roomTypeRate').value);
+            const hotelId = parseInt(document.getElementById('roomTypeHotel').value);
 
-            const tableHtml = `
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Location</th>
-                            <th>Standard Rate</th>
-                            <th>Total Rooms</th>
-                            <th>Room Types</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ${filtered.map(h => {
-                            const roomTypesDisplay = h.roomTypes && h.roomTypes.length > 0
-                                ? h.roomTypes.map(rt => `${rt.name} (${rt.availableRooms} available, $${rt.rate.toFixed(2)})`).join('<br>')
-                                : '-';
-                            
-                            return `
-                                <tr>
-                                    <td>${h.name}</td>
-                                    <td>${h.location}</td>
-                                    <td>$${h.standardRate.toFixed(2)}</td>
-                                    <td>${h.totalRooms}</td>
-                                    <td style="font-size: 12px;">${roomTypesDisplay}</td>
-                                    <td>
-                                        <button class="btn btn-danger action-btn" onclick="deleteHotel(${h.id})">Delete</button>
-                                    </td>
-                                </tr>
-                            `;
-                        }).join('')}
-                    </tbody>
-                </table>
-            `;
+            if (!name || !rate || !hotelId) {
+                alert('Please fill all room type fields');
+                return;
+            }
 
-            document.getElementById('hotels-table').innerHTML = tableHtml;
+            const roomType = {
+                id: Date.now(),
+                name,
+                rate,
+                hotelId
+            };
+
+            roomTypes.push(roomType);
+            saveData();
+            document.getElementById('roomTypeName').value = '';
+            document.getElementById('roomTypeRate').value = '';
+            renderAll();
+            alert('Room type added successfully!');
         }
 
-        async function deleteHotel(id) {
-            if (confirm('Are you sure you want to delete this hotel?')) {
-                await deleteRecord('hotels', id);
-                showMessage('Hotel deleted successfully!');
-                loadHotels();
-                updateHotelDropdown();
+        function renderHotels() {
+            const tbody = document.querySelector('#hotelsTable tbody');
+            tbody.innerHTML = '';
+            hotels.forEach(hotel => {
+                const hotelRoomTypes = roomTypes.filter(rt => rt.hotelId === hotel.id);
+                const roomTypesText = hotelRoomTypes.map(rt => `${rt.name} ($${rt.rate})`).join(', ') || 'None';
+                const row = `
+                    <tr>
+                        <td>${hotel.name}</td>
+                        <td>${hotel.location}</td>
+                        <td>${hotel.contact}</td>
+                        <td>${roomTypesText}</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn btn-small btn-danger" onclick="deleteHotel(${hotel.id})">Delete</button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+        }
+
+        function renderRoomTypes() {
+            const container = document.getElementById('roomTypesList');
+            container.innerHTML = '<h3 style="margin-top: 24px;">Current Room Types</h3>';
+            
+            roomTypes.forEach(rt => {
+                const hotel = hotels.find(h => h.id === rt.hotelId);
+                const item = document.createElement('div');
+                item.className = 'room-type-item';
+                item.innerHTML = `
+                    <div>
+                        <strong>${rt.name}</strong> at ${hotel ? hotel.name : 'Unknown Hotel'} - $${rt.rate}/night
+                    </div>
+                    <button class="btn btn-small btn-danger" onclick="deleteRoomType(${rt.id})">Delete</button>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        function deleteHotel(id) {
+            if (confirm('Delete this hotel? Associated room types and bookings will be affected.')) {
+                hotels = hotels.filter(h => h.id !== id);
+                roomTypes = roomTypes.filter(rt => rt.hotelId !== id);
+                saveData();
+                renderAll();
             }
         }
 
-        async function updateHotelDropdown() {
-            const hotels = await getAllRecords('hotels');
-            const select = document.getElementById('booking-hotel');
-            select.innerHTML = '<option value="">Select Hotel</option>';
-            hotels.forEach(h => {
-                select.innerHTML += `<option value="${h.id}">${h.name} - ${h.location}</option>`;
+        function deleteRoomType(id) {
+            if (confirm('Delete this room type?')) {
+                roomTypes = roomTypes.filter(rt => rt.id !== id);
+                saveData();
+                renderAll();
+            }
+        }
+
+        // Customer Management
+        document.getElementById('customerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const customer = {
+                id: Date.now(),
+                name: document.getElementById('customerName').value,
+                email: document.getElementById('customerEmail').value,
+                phone: document.getElementById('customerPhone').value
+            };
+            
+            customers.push(customer);
+            saveData();
+            this.reset();
+            renderAll();
+            alert('Customer added successfully!');
+        });
+
+        function renderCustomers() {
+            const tbody = document.querySelector('#customersTable tbody');
+            tbody.innerHTML = '';
+            customers.forEach(customer => {
+                const customerBookings = bookings.filter(b => b.customerId === customer.id);
+                const row = `
+                    <tr>
+                        <td>${customer.name}</td>
+                        <td>${customer.email}</td>
+                        <td>${customer.phone}</td>
+                        <td>${customerBookings.length}</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn btn-small btn-danger" onclick="deleteCustomer(${customer.id})">Delete</button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
             });
+        }
+
+        function deleteCustomer(id) {
+            if (confirm('Delete this customer? Associated bookings will be affected.')) {
+                customers = customers.filter(c => c.id !== id);
+                saveData();
+                renderAll();
+            }
         }
 
         // Booking Management
-        document.getElementById('booking-form').addEventListener('submit', async (e) => {
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const checkinDate = new Date(document.getElementById('booking-checkin').value);
-            const checkoutDate = new Date(document.getElementById('booking-checkout').value);
-            const nights = Math.ceil((checkoutDate - checkinDate) / (1000 * 60 * 60 * 24));
+            const customerId = parseInt(document.getElementById('bookingCustomer').value);
+            const hotelId = parseInt(document.getElementById('bookingHotel').value);
+            const roomTypeId = parseInt(document.getElementById('bookingRoomType').value);
+            const checkIn = document.getElementById('bookingCheckIn').value;
+            const checkOut = document.getElementById('bookingCheckOut').value;
+            const nights = parseInt(document.getElementById('bookingNights').value);
+            const rate = parseFloat(document.getElementById('bookingRate').value);
+            const total = parseFloat(document.getElementById('bookingTotal').value);
 
-            if (nights <= 0) {
-                showMessage('Check-out date must be after check-in date', 'error');
+            // Check inventory availability
+            const dates = getDateRange(checkIn, checkOut);
+            for (let date of dates) {
+                const key = `${hotelId}-${roomTypeId}-${date}`;
+                const inv = inventory[key] || { total: 0, booked: 0 };
+                if (inv.booked >= inv.total && inv.total > 0) {
+                    alert(`No rooms available for ${date}. Please check inventory.`);
+                    return;
+                }
+            }
+
+            const booking = {
+                id: Date.now(),
+                customerId,
+                hotelId,
+                roomTypeId,
+                checkIn,
+                checkOut,
+                nights,
+                rate,
+                total
+            };
+
+            bookings.push(booking);
+
+            // Update inventory
+            for (let date of dates) {
+                const key = `${hotelId}-${roomTypeId}-${date}`;
+                if (!inventory[key]) {
+                    inventory[key] = { total: 0, booked: 0 };
+                }
+                inventory[key].booked++;
+            }
+
+            saveData();
+            this.reset();
+            renderAll();
+            alert('Booking created successfully!');
+        });
+
+        function updateRoomTypes() {
+            const hotelId = parseInt(document.getElementById('bookingHotel').value);
+            const select = document.getElementById('bookingRoomType');
+            select.innerHTML = '<option value="">Select Room Type</option>';
+            
+            const hotelRoomTypes = roomTypes.filter(rt => rt.hotelId === hotelId);
+            hotelRoomTypes.forEach(rt => {
+                const option = document.createElement('option');
+                option.value = rt.id;
+                option.textContent = `${rt.name} - $${rt.rate}/night`;
+                option.dataset.rate = rt.rate;
+                select.appendChild(option);
+            });
+        }
+
+        function updateBookingRate() {
+            const select = document.getElementById('bookingRoomType');
+            const selectedOption = select.options[select.selectedIndex];
+            if (selectedOption && selectedOption.dataset.rate) {
+                document.getElementById('bookingRate').value = selectedOption.dataset.rate;
+                calculateNights();
+            }
+        }
+
+        function calculateNights() {
+            const checkIn = document.getElementById('bookingCheckIn').value;
+            const checkOut = document.getElementById('bookingCheckOut').value;
+            const rate = parseFloat(document.getElementById('bookingRate').value) || 0;
+
+            if (checkIn && checkOut) {
+                const start = new Date(checkIn);
+                const end = new Date(checkOut);
+                const nights = Math.max(0, Math.floor((end - start) / (1000 * 60 * 60 * 24)));
+                document.getElementById('bookingNights').value = nights;
+                document.getElementById('bookingTotal').value = (nights * rate).toFixed(2);
+            }
+        }
+
+        function renderBookings() {
+            const tbody = document.querySelector('#bookingsTable tbody');
+            tbody.innerHTML = '';
+            bookings.forEach(booking => {
+                const customer = customers.find(c => c.id === booking.customerId);
+                const hotel = hotels.find(h => h.id === booking.hotelId);
+                const roomType = roomTypes.find(rt => rt.id === booking.roomTypeId);
+                
+                const row = `
+                    <tr>
+                        <td>${booking.id}</td>
+                        <td>${customer ? customer.name : 'Unknown'}</td>
+                        <td>${hotel ? hotel.name : 'Unknown'}</td>
+                        <td>${roomType ? roomType.name : 'Unknown'}</td>
+                        <td>${booking.checkIn}</td>
+                        <td>${booking.checkOut}</td>
+                        <td>${booking.nights}</td>
+                        <td>$${booking.rate.toFixed(2)}</td>
+                        <td>$${booking.total.toFixed(2)}</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn btn-small btn-danger" onclick="deleteBooking(${booking.id})">Delete</button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+        }
+
+        function deleteBooking(id) {
+            if (confirm('Delete this booking?')) {
+                const booking = bookings.find(b => b.id === id);
+                if (booking) {
+                    // Update inventory
+                    const dates = getDateRange(booking.checkIn, booking.checkOut);
+                    for (let date of dates) {
+                        const key = `${booking.hotelId}-${booking.roomTypeId}-${date}`;
+                        if (inventory[key]) {
+                            inventory[key].booked = Math.max(0, inventory[key].booked - 1);
+                        }
+                    }
+                    
+                    bookings = bookings.filter(b => b.id !== id);
+                    saveData();
+                    renderAll();
+                }
+            }
+        }
+
+        // Inventory Management
+        function setInventory() {
+            const hotelId = parseInt(document.getElementById('inventoryHotel').value);
+            const roomTypeId = parseInt(document.getElementById('inventoryRoomType').value);
+            const date = document.getElementById('inventoryDate').value;
+            const total = parseInt(document.getElementById('inventoryTotal').value);
+
+            if (!hotelId || !roomTypeId || !date || isNaN(total)) {
+                alert('Please fill all fields');
                 return;
             }
 
-            const nightly = parseFloat(document.getElementById('booking-rate').value);
-            const extraRate = parseFloat(document.getElementById('booking-extra-rate').value) || 0;
-
-            const booking = {
-                customerId: parseInt(document.getElementById('booking-customer').value),
-                hotelId: parseInt(document.getElementById('booking-hotel').value),
-                checkinDate: document.getElementById('booking-checkin').value,
-                checkoutDate: document.getElementById('booking-checkout').value,
-                nights: nights,
-                nightlyRate: nightly,
-                extraNightRate: extraRate,
-                totalCost: (nightly * nights) + (extraRate * nights),
-                notes: document.getElementById('booking-notes').value,
-                createdAt: new Date().toISOString()
-            };
-
-            try {
-                await addRecord('bookings', booking);
-                showMessage('Booking added successfully!');
-                document.getElementById('booking-form').reset();
-                loadBookings();
-            } catch (error) {
-                showMessage('Error adding booking: ' + error.message, 'error');
+            const key = `${hotelId}-${roomTypeId}-${date}`;
+            if (!inventory[key]) {
+                inventory[key] = { total: 0, booked: 0 };
             }
-        });
+            inventory[key].total = total;
 
-        async function loadBookings() {
-            const bookings = await getAllRecords('bookings');
-            const customers = await getAllRecords('customers');
-            const hotels = await getAllRecords('hotels');
-            const searchTerm = document.getElementById('search-bookings').value.toLowerCase();
-
-            const bookingsWithDetails = bookings.map(b => {
-                const customer = customers.find(c => c.id === b.customerId);
-                const hotel = hotels.find(h => h.id === b.hotelId);
-                return {
-                    ...b,
-                    customerName: customer ? customer.name : 'Unknown',
-                    hotelName: hotel ? hotel.name : 'Unknown'
-                };
-            });
-
-            const filtered = bookingsWithDetails.filter(b => 
-                b.customerName.toLowerCase().includes(searchTerm) ||
-                b.hotelName.toLowerCase().includes(searchTerm)
-            );
-
-            const tableHtml = `
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Customer</th>
-                            <th>Hotel</th>
-                            <th>Check-in</th>
-                            <th>Check-out</th>
-                            <th>Nights</th>
-                            <th>Nightly Rate</th>
-                            <th>Extra Rate</th>
-                            <th>Total Cost</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ${filtered.map(b => `
-                            <tr>
-                                <td>${b.customerName}</td>
-                                <td>${b.hotelName}</td>
-                                <td>${b.checkinDate}</td>
-                                <td>${b.checkoutDate}</td>
-                                <td>${b.nights}</td>
-                                <td>$${b.nightlyRate.toFixed(2)}</td>
-                                <td>$${b.extraNightRate.toFixed(2)}</td>
-                                <td>$${b.totalCost.toFixed(2)}</td>
-                                <td>
-                                    <button class="btn btn-danger action-btn" onclick="deleteBooking(${b.id})">Delete</button>
-                                </td>
-                            </tr>
-                        `).join('')}
-                    </tbody>
-                </table>
-            `;
-
-            document.getElementById('bookings-table').innerHTML = tableHtml;
+            saveData();
+            loadInventory();
+            alert('Inventory updated successfully!');
         }
 
-        async function deleteBooking(id) {
-            if (confirm('Are you sure you want to delete this booking?')) {
-                await deleteRecord('bookings', id);
-                showMessage('Booking deleted successfully!');
-                loadBookings();
+        function setInventoryRange() {
+            const hotelId = parseInt(document.getElementById('inventoryHotel').value);
+            const roomTypeId = parseInt(document.getElementById('inventoryRoomType').value);
+            const total = parseInt(document.getElementById('inventoryTotal').value);
+
+            if (!hotelId || !roomTypeId || isNaN(total)) {
+                alert('Please select hotel, room type and total rooms');
+                return;
             }
+
+            const startDate = prompt('Enter start date (YYYY-MM-DD):');
+            const endDate = prompt('Enter end date (YYYY-MM-DD):');
+
+            if (!startDate || !endDate) return;
+
+            const dates = getDateRange(startDate, endDate, true);
+            
+            for (let date of dates) {
+                const key = `${hotelId}-${roomTypeId}-${date}`;
+                if (!inventory[key]) {
+                    inventory[key] = { total: 0, booked: 0 };
+                }
+                inventory[key].total = total;
+            }
+
+            saveData();
+            loadInventory();
+            alert(`Inventory set for ${dates.length} dates`);
+        }
+
+        function loadInventory() {
+            const hotelId = parseInt(document.getElementById('inventoryHotel').value);
+            const roomTypeId = parseInt(document.getElementById('inventoryRoomType').value);
+
+            if (!hotelId || !roomTypeId) {
+                document.getElementById('inventoryOverview').innerHTML = '<p style="color: var(--color-text-secondary);">Select a hotel and room type to view inventory.</p>';
+                document.getElementById('reconciliationSummary').innerHTML = '<p style="color: var(--color-text-secondary);">Select a hotel and room type to view reconciliation data.</p>';
+                return;
+            }
+
+            const hotel = hotels.find(h => h.id === hotelId);
+            const roomType = roomTypes.find(rt => rt.id === roomTypeId);
+
+            // Show next 30 days
+            const today = new Date();
+            const dates = [];
+            for (let i = 0; i < 30; i++) {
+                const date = new Date(today);
+                date.setDate(date.getDate() + i);
+                dates.push(date.toISOString().split('T')[0]);
+            }
+
+            let html = `<h3>${hotel.name} - ${roomType.name}</h3><div class="inventory-grid">`;
+            let totalAvailable = 0;
+            let totalBooked = 0;
+            let totalCapacity = 0;
+            let lowDates = [];
+            let fullDates = [];
+
+            dates.forEach(date => {
+                const key = `${hotelId}-${roomTypeId}-${date}`;
+                const inv = inventory[key] || { total: 0, booked: 0 };
+                const available = inv.total - inv.booked;
+                const dateObj = new Date(date);
+                const formattedDate = `${dateObj.getMonth() + 1}/${dateObj.getDate()}`;
+
+                totalAvailable += available;
+                totalBooked += inv.booked;
+                totalCapacity += inv.total;
+
+                let className = 'inventory-date';
+                if (inv.total > 0 && available === 0) {
+                    className += ' full';
+                    fullDates.push(formattedDate);
+                } else if (inv.total > 0 && available <= inv.total * 0.2) {
+                    className += ' low';
+                    lowDates.push(formattedDate);
+                }
+
+                html += `
+                    <div class="${className}">
+                        <div class="date">${formattedDate}</div>
+                        <div class="available">${available}</div>
+                        <div class="total">of ${inv.total}</div>
+                    </div>
+                `;
+            });
+
+            html += '</div>';
+            document.getElementById('inventoryOverview').innerHTML = html;
+
+            // Reconciliation Summary
+            let reconcileHtml = `
+                <h3>30-Day Summary</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">${totalCapacity}</div>
+                        <div class="stat-label">Total Room Nights</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">${totalBooked}</div>
+                        <div class="stat-label">Booked</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">${totalAvailable}</div>
+                        <div class="stat-label">Available</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">${totalCapacity > 0 ? ((totalBooked / totalCapacity) * 100).toFixed(1) : 0}%</div>
+                        <div class="stat-label">Occupancy Rate</div>
+                    </div>
+                </div>
+            `;
+
+            if (lowDates.length > 0) {
+                reconcileHtml += `<p style="color: var(--color-warning); margin-top: 16px;"><strong>⚠️ Low Availability:</strong> ${lowDates.join(', ')}</p>`;
+            }
+            if (fullDates.length > 0) {
+                reconcileHtml += `<p style="color: var(--color-error); margin-top: 8px;"><strong>🔴 Fully Booked:</strong> ${fullDates.join(', ')}</p>`;
+            }
+
+            document.getElementById('reconciliationSummary').innerHTML = reconcileHtml;
         }
 
         // Dashboard
-        async function updateDashboard() {
-            const bookings = await getAllRecords('bookings');
-            const customers = await getAllRecords('customers');
-            const hotels = await getAllRecords('hotels');
-
-            document.getElementById('total-bookings').textContent = bookings.length;
-            document.getElementById('total-customers').textContent = customers.length;
-            document.getElementById('total-hotels').textContent = hotels.length;
-
+        function updateDashboard() {
+            document.getElementById('totalBookings').textContent = bookings.length;
+            
             const totalNights = bookings.reduce((sum, b) => sum + b.nights, 0);
-            const totalRevenue = bookings.reduce((sum, b) => sum + b.totalCost, 0);
-
-            document.getElementById('total-nights').textContent = totalNights;
-            document.getElementById('total-revenue').textContent = `$${totalRevenue.toFixed(2)}`;
+            document.getElementById('totalNights').textContent = totalNights;
+            
+            const totalRevenue = bookings.reduce((sum, b) => sum + b.total, 0);
+            document.getElementById('totalRevenue').textContent = `$${totalRevenue.toFixed(2)}`;
+            
+            const today = new Date().toISOString().split('T')[0];
+            const activeBookings = bookings.filter(b => b.checkOut >= today && b.checkIn <= today);
+            document.getElementById('activeBookings').textContent = activeBookings.length;
 
             // Recent bookings
-            const recentBookings = bookings.slice(-5).reverse();
-            const bookingsWithDetails = recentBookings.map(b => {
-                const customer = customers.find(c => c.id === b.customerId);
-                const hotel = hotels.find(h => h.id === b.hotelId);
-                return {
-                    ...b,
-                    customerName: customer ? customer.name : 'Unknown',
-                    hotelName: hotel ? hotel.name : 'Unknown'
-                };
+            const tbody = document.querySelector('#recentBookingsTable tbody');
+            tbody.innerHTML = '';
+            const recentBookings = [...bookings].slice(-10).reverse();
+            recentBookings.forEach(booking => {
+                const customer = customers.find(c => c.id === booking.customerId);
+                const hotel = hotels.find(h => h.id === booking.hotelId);
+                const roomType = roomTypes.find(rt => rt.id === booking.roomTypeId);
+                
+                const row = `
+                    <tr>
+                        <td>${customer ? customer.name : 'Unknown'}</td>
+                        <td>${hotel ? hotel.name : 'Unknown'}</td>
+                        <td>${roomType ? roomType.name : 'Unknown'}</td>
+                        <td>${booking.checkIn}</td>
+                        <td>${booking.checkOut}</td>
+                        <td>${booking.nights}</td>
+                        <td>$${booking.total.toFixed(2)}</td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
             });
-
-            const recentTableHtml = `
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Customer</th>
-                            <th>Hotel</th>
-                            <th>Check-in</th>
-                            <th>Nights</th>
-                            <th>Total Cost</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ${bookingsWithDetails.map(b => `
-                            <tr>
-                                <td>${b.customerName}</td>
-                                <td>${b.hotelName}</td>
-                                <td>${b.checkinDate}</td>
-                                <td>${b.nights}</td>
-                                <td>$${b.totalCost.toFixed(2)}</td>
-                            </tr>
-                        `).join('')}
-                    </tbody>
-                </table>
-            `;
-
-            document.getElementById('recent-bookings-table').innerHTML = recentTableHtml;
-
-            // Hotel statistics
-            const hotelStats = hotels.map(h => {
-                const hotelBookings = bookings.filter(b => b.hotelId === h.id);
-                const nights = hotelBookings.reduce((sum, b) => sum + b.nights, 0);
-                const revenue = hotelBookings.reduce((sum, b) => sum + b.totalCost, 0);
-                return {
-                    name: h.name,
-                    bookings: hotelBookings.length,
-                    nights: nights,
-                    revenue: revenue
-                };
-            });
-
-            const hotelStatsHtml = `
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Hotel</th>
-                            <th>Bookings</th>
-                            <th>Total Nights</th>
-                            <th>Total Revenue</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ${hotelStats.map(h => `
-                            <tr>
-                                <td>${h.name}</td>
-                                <td>${h.bookings}</td>
-                                <td>${h.nights}</td>
-                                <td>$${h.revenue.toFixed(2)}</td>
-                            </tr>
-                        `).join('')}
-                    </tbody>
-                </table>
-            `;
-
-            document.getElementById('hotel-stats').innerHTML = hotelStatsHtml;
         }
 
-        // Export to Excel
-        async function exportToExcel(type) {
+        // Helper Functions
+        function getDateRange(start, end, includeEnd = false) {
+            const dates = [];
+            const startDate = new Date(start);
+            const endDate = new Date(end);
+            
+            const current = new Date(startDate);
+            while (current < endDate) {
+                dates.push(current.toISOString().split('T')[0]);
+                current.setDate(current.getDate() + 1);
+            }
+            
+            if (includeEnd) {
+                dates.push(endDate.toISOString().split('T')[0]);
+            }
+            
+            return dates;
+        }
+
+        function initializeDropdowns() {
+            updateHotelDropdowns();
+            updateCustomerDropdowns();
+        }
+
+        function updateHotelDropdowns() {
+            const selects = ['bookingHotel', 'roomTypeHotel', 'inventoryHotel'];
+            selects.forEach(selectId => {
+                const select = document.getElementById(selectId);
+                select.innerHTML = '<option value="">Select Hotel</option>';
+                hotels.forEach(hotel => {
+                    const option = document.createElement('option');
+                    option.value = hotel.id;
+                    option.textContent = hotel.name;
+                    select.appendChild(option);
+                });
+            });
+
+            // Update inventory room type dropdown when hotel changes
+            document.getElementById('inventoryHotel').addEventListener('change', function() {
+                const hotelId = parseInt(this.value);
+                const select = document.getElementById('inventoryRoomType');
+                select.innerHTML = '<option value="">Select Room Type</option>';
+                if (hotelId) {
+                    const hotelRoomTypes = roomTypes.filter(rt => rt.hotelId === hotelId);
+                    hotelRoomTypes.forEach(rt => {
+                        const option = document.createElement('option');
+                        option.value = rt.id;
+                        option.textContent = rt.name;
+                        select.appendChild(option);
+                    });
+                }
+            });
+        }
+
+        function updateCustomerDropdowns() {
+            const select = document.getElementById('bookingCustomer');
+            select.innerHTML = '<option value="">Select Customer</option>';
+            customers.forEach(customer => {
+                const option = document.createElement('option');
+                option.value = customer.id;
+                option.textContent = customer.name;
+                select.appendChild(option);
+            });
+        }
+
+        function renderAll() {
+            renderHotels();
+            renderRoomTypes();
+            renderCustomers();
+            renderBookings();
+            updateHotelDropdowns();
+            updateCustomerDropdowns();
+            updateDashboard();
+        }
+
+        // Import/Export Functions
+        function importHotels(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const text = e.target.result;
+                const lines = text.split('\n').filter(line => line.trim());
+                const headers = lines[0].split(',').map(h => h.trim());
+                
+                for (let i = 1; i < lines.length; i++) {
+                    const values = lines[i].split(',').map(v => v.trim());
+                    const hotel = {
+                        id: Date.now() + i,
+                        name: values[0] || '',
+                        location: values[1] || '',
+                        contact: values[2] || ''
+                    };
+                    hotels.push(hotel);
+                }
+                
+                saveData();
+                renderAll();
+                alert(`Imported ${lines.length - 1} hotels`);
+            };
+            reader.readAsText(file);
+            event.target.value = '';
+        }
+
+        function exportHotels() {
+            const csv = ['Hotel Name,Location,Contact'];
+            hotels.forEach(hotel => {
+                csv.push(`${hotel.name},${hotel.location},${hotel.contact}`);
+            });
+            downloadCSV(csv.join('\n'), 'hotels.csv');
+        }
+
+        function importCustomers(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const text = e.target.result;
+                const lines = text.split('\n').filter(line => line.trim());
+                
+                for (let i = 1; i < lines.length; i++) {
+                    const values = lines[i].split(',').map(v => v.trim());
+                    const customer = {
+                        id: Date.now() + i,
+                        name: values[0] || '',
+                        email: values[1] || '',
+                        phone: values[2] || ''
+                    };
+                    customers.push(customer);
+                }
+                
+                saveData();
+                renderAll();
+                alert(`Imported ${lines.length - 1} customers`);
+            };
+            reader.readAsText(file);
+            event.target.value = '';
+        }
+
+        function exportCustomers() {
+            const csv = ['Customer Name,Email,Phone'];
+            customers.forEach(customer => {
+                csv.push(`${customer.name},${customer.email},${customer.phone}`);
+            });
+            downloadCSV(csv.join('\n'), 'customers.csv');
+        }
+
+        function importBookings(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const text = e.target.result;
+                const lines = text.split('\n').filter(line => line.trim());
+                
+                for (let i = 1; i < lines.length; i++) {
+                    const values = lines[i].split(',').map(v => v.trim());
+                    const customerName = values[0];
+                    const hotelName = values[1];
+                    const roomTypeName = values[2];
+                    
+                    const customer = customers.find(c => c.name === customerName);
+                    const hotel = hotels.find(h => h.name === hotelName);
+                    const roomType = roomTypes.find(rt => rt.name === roomTypeName && rt.hotelId === (hotel ? hotel.id : null));
+                    
+                    if (customer && hotel && roomType) {
+                        const checkIn = values[3];
+                        const checkOut = values[4];
+                        const nights = parseInt(values[5]) || 0;
+                        const rate = parseFloat(values[6]) || roomType.rate;
+                        const total = parseFloat(values[7]) || (nights * rate);
+                        
+                        const booking = {
+                            id: Date.now() + i,
+                            customerId: customer.id,
+                            hotelId: hotel.id,
+                            roomTypeId: roomType.id,
+                            checkIn,
+                            checkOut,
+                            nights,
+                            rate,
+                            total
+                        };
+                        bookings.push(booking);
+
+                        // Update inventory
+                        const dates = getDateRange(checkIn, checkOut);
+                        dates.forEach(date => {
+                            const key = `${hotel.id}-${roomType.id}-${date}`;
+                            if (!inventory[key]) {
+                                inventory[key] = { total: 0, booked: 0 };
+                            }
+                            inventory[key].booked++;
+                        });
+                    }
+                }
+                
+                saveData();
+                renderAll();
+                alert(`Imported ${lines.length - 1} bookings`);
+            };
+            reader.readAsText(file);
+            event.target.value = '';
+        }
+
+        function exportBookings() {
+            const csv = ['Customer,Hotel,Room Type,Check-in,Check-out,Nights,Rate/Night,Total Cost'];
+            bookings.forEach(booking => {
+                const customer = customers.find(c => c.id === booking.customerId);
+                const hotel = hotels.find(h => h.id === booking.hotelId);
+                const roomType = roomTypes.find(rt => rt.id === booking.roomTypeId);
+                csv.push(`${customer ? customer.name : 'Unknown'},${hotel ? hotel.name : 'Unknown'},${roomType ? roomType.name : 'Unknown'},${booking.checkIn},${booking.checkOut},${booking.nights},${booking.rate},${booking.total}`);
+            });
+            downloadCSV(csv.join('\n'), 'bookings.csv');
+        }
+
+        function exportToExcel() {
             const wb = XLSX.utils.book_new();
 
-            if (type === 'customers' || type === 'all') {
-                const customers = await getAllRecords('customers');
-                const ws = XLSX.utils.json_to_sheet(customers.map(c => ({
-                    Name: c.name,
-                    Email: c.email,
-                    Phone: c.phone || '',
-                    Company: c.company || '',
-                    'Created At': c.createdAt
-                })));
-                XLSX.utils.book_append_sheet(wb, ws, 'Customers');
-            }
+            // Hotels sheet
+            const hotelsData = hotels.map(h => ({
+                'Hotel Name': h.name,
+                'Location': h.location,
+                'Contact': h.contact
+            }));
+            const hotelsSheet = XLSX.utils.json_to_sheet(hotelsData);
+            XLSX.utils.book_append_sheet(wb, hotelsSheet, 'Hotels');
 
-            if (type === 'hotels' || type === 'all') {
-                const hotels = await getAllRecords('hotels');
-                const ws = XLSX.utils.json_to_sheet(hotels.map(h => ({
-                    Name: h.name,
-                    Location: h.location,
-                    'Standard Rate': h.standardRate,
-                    'Total Rooms': h.totalRooms,
-                    Amenities: h.amenities || '',
-                    'Created At': h.createdAt
-                })));
-                XLSX.utils.book_append_sheet(wb, ws, 'Hotels');
-            }
+            // Room Types sheet
+            const roomTypesData = roomTypes.map(rt => {
+                const hotel = hotels.find(h => h.id === rt.hotelId);
+                return {
+                    'Room Type': rt.name,
+                    'Hotel': hotel ? hotel.name : 'Unknown',
+                    'Rate/Night': rt.rate
+                };
+            });
+            const roomTypesSheet = XLSX.utils.json_to_sheet(roomTypesData);
+            XLSX.utils.book_append_sheet(wb, roomTypesSheet, 'Room Types');
 
-            if (type === 'bookings' || type === 'all') {
-                const bookings = await getAllRecords('bookings');
-                const customers = await getAllRecords('customers');
-                const hotels = await getAllRecords('hotels');
+            // Customers sheet
+            const customersData = customers.map(c => ({
+                'Name': c.name,
+                'Email': c.email,
+                'Phone': c.phone
+            }));
+            const customersSheet = XLSX.utils.json_to_sheet(customersData);
+            XLSX.utils.book_append_sheet(wb, customersSheet, 'Customers');
 
-                const bookingsData = bookings.map(b => {
-                    const customer = customers.find(c => c.id === b.customerId);
-                    const hotel = hotels.find(h => h.id === b.hotelId);
-                    return {
-                        Customer: customer ? customer.name : 'Unknown',
-                        'Customer Email': customer ? customer.email : 'Unknown',
-                        Hotel: hotel ? hotel.name : 'Unknown',
-                        'Hotel Location': hotel ? hotel.location : 'Unknown',
-                        'Check-in': b.checkinDate,
-                        'Check-out': b.checkoutDate,
-                        'Nights': b.nights,
-                        'Nightly Rate': b.nightlyRate,
-                        'Extra Night Rate': b.extraNightRate,
-                        'Total Cost': b.totalCost,
-                        Notes: b.notes || '',
-                        'Created At': b.createdAt
-                    };
+            // Bookings sheet
+            const bookingsData = bookings.map(b => {
+                const customer = customers.find(c => c.id === b.customerId);
+                const hotel = hotels.find(h => h.id === b.hotelId);
+                const roomType = roomTypes.find(rt => rt.id === b.roomTypeId);
+                return {
+                    'Booking ID': b.id,
+                    'Customer': customer ? customer.name : 'Unknown',
+                    'Hotel': hotel ? hotel.name : 'Unknown',
+                    'Room Type': roomType ? roomType.name : 'Unknown',
+                    'Check-in': b.checkIn,
+                    'Check-out': b.checkOut,
+                    'Nights': b.nights,
+                    'Rate/Night': b.rate,
+                    'Total Cost': b.total
+                };
+            });
+            const bookingsSheet = XLSX.utils.json_to_sheet(bookingsData);
+            XLSX.utils.book_append_sheet(wb, bookingsSheet, 'Bookings');
+
+            // Inventory sheet
+            const inventoryData = [];
+            Object.keys(inventory).forEach(key => {
+                const [hotelId, roomTypeId, date] = key.split('-');
+                const hotel = hotels.find(h => h.id === parseInt(hotelId));
+                const roomType = roomTypes.find(rt => rt.id === parseInt(roomTypeId));
+                const inv = inventory[key];
+                inventoryData.push({
+                    'Date': date,
+                    'Hotel': hotel ? hotel.name : 'Unknown',
+                    'Room Type': roomType ? roomType.name : 'Unknown',
+                    'Total Rooms': inv.total,
+                    'Booked': inv.booked,
+                    'Available': inv.total - inv.booked
                 });
+            });
+            const inventorySheet = XLSX.utils.json_to_sheet(inventoryData);
+            XLSX.utils.book_append_sheet(wb, inventorySheet, 'Inventory');
 
-                const ws = XLSX.utils.json_to_sheet(bookingsData);
-                XLSX.utils.book_append_sheet(wb, ws, 'Bookings');
-            }
-
-            const filename = `hotel-booking-${type}-${new Date().toISOString().split('T')[0]}.xlsx`;
-            XLSX.writeFile(wb, filename);
-            showMessage(`Exported ${type} data successfully!`);
+            XLSX.writeFile(wb, 'hotel_booking_data.xlsx');
         }
 
-        // Import Data
-        async function importData() {
-            const fileInput = document.getElementById('import-file');
-            const importType = document.getElementById('import-type').value;
-
-            if (!fileInput.files.length) {
-                showMessage('Please select a file to import', 'error');
-                return;
-            }
-
-            const file = fileInput.files[0];
-            const reader = new FileReader();
-
-            reader.onload = async (e) => {
-                try {
-                    const data = new Uint8Array(e.target.result);
-                    const workbook = XLSX.read(data, { type: 'array' });
-                    const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
-                    const jsonData = XLSX.utils.sheet_to_json(firstSheet);
-
-                    let imported = 0;
-
-                    if (importType === 'customers') {
-                        for (const row of jsonData) {
-                            try {
-                                await addRecord('customers', {
-                                    name: row.Name || row.name,
-                                    email: row.Email || row.email,
-                                    phone: row.Phone || row.phone || '',
-                                    company: row.Company || row.company || '',
-                                    createdAt: new Date().toISOString()
-                                });
-                                imported++;
-                            } catch (error) {
-                                console.error('Error importing customer:', error);
-                            }
-                        }
-                        updateCustomerDropdown();
-                        loadCustomers();
-                    } else if (importType === 'hotels') {
-                        for (const row of jsonData) {
-                            try {
-                                await addRecord('hotels', {
-                                    name: row.Name || row.name,
-                                    location: row.Location || row.location,
-                                    standardRate: parseFloat(row['Standard Rate'] || row.standardRate) || 0,
-                                    totalRooms: parseInt(row['Total Rooms'] || row.totalRooms) || 0,
-                                    amenities: row.Amenities || row.amenities || '',
-                                    createdAt: new Date().toISOString()
-                                });
-                                imported++;
-                            } catch (error) {
-                                console.error('Error importing hotel:', error);
-                            }
-                        }
-                        updateHotelDropdown();
-                        loadHotels();
-                    } else if (importType === 'bookings') {
-                        const customers = await getAllRecords('customers');
-                        const hotels = await getAllRecords('hotels');
-
-                        for (const row of jsonData) {
-                            try {
-                                const customerEmail = row['Customer Email'] || row.customerEmail;
-                                const hotelName = row.Hotel || row.hotel;
-                                
-                                const customer = customers.find(c => c.email === customerEmail);
-                                const hotel = hotels.find(h => h.name === hotelName);
-
-                                if (!customer || !hotel) {
-                                    console.error('Customer or hotel not found for booking');
-                                    continue;
-                                }
-
-                                const checkinDate = new Date(row['Check-in'] || row.checkin);
-                                const checkoutDate = new Date(row['Check-out'] || row.checkout);
-                                const nights = Math.ceil((checkoutDate - checkinDate) / (1000 * 60 * 60 * 24));
-
-                                await addRecord('bookings', {
-                                    customerId: customer.id,
-                                    hotelId: hotel.id,
-                                    checkinDate: checkinDate.toISOString().split('T')[0],
-                                    checkoutDate: checkoutDate.toISOString().split('T')[0],
-                                    nights: nights,
-                                    nightlyRate: parseFloat(row['Nightly Rate'] || row.nightlyRate) || 0,
-                                    extraNightRate: parseFloat(row['Extra Night Rate'] || row.extraNightRate) || 0,
-                                    totalCost: parseFloat(row['Total Cost'] || row.totalCost) || 0,
-                                    notes: row.Notes || row.notes || '',
-                                    createdAt: new Date().toISOString()
-                                });
-                                imported++;
-                            } catch (error) {
-                                console.error('Error importing booking:', error);
-                            }
-                        }
-                        loadBookings();
-                    }
-
-                    showMessage(`Successfully imported ${imported} ${importType}!`);
-                    fileInput.value = '';
-                } catch (error) {
-                    showMessage('Error importing data: ' + error.message, 'error');
-                }
-            };
-
-            reader.readAsArrayBuffer(file);
+        function downloadCSV(content, filename) {
+            const blob = new Blob([content], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            a.click();
+            URL.revokeObjectURL(url);
         }
-
-        // Clear All Data
-        async function clearAllData() {
-            if (!confirm('Are you sure you want to delete ALL data? This cannot be undone!')) {
-                return;
-            }
-
-            try {
-                const bookings = await getAllRecords('bookings');
-                const customers = await getAllRecords('customers');
-                const hotels = await getAllRecords('hotels');
-
-                for (const b of bookings) {
-                    await deleteRecord('bookings', b.id);
-                }
-                for (const c of customers) {
-                    await deleteRecord('customers', c.id);
-                }
-                for (const h of hotels) {
-                    await deleteRecord('hotels', h.id);
-                }
-
-                showMessage('All data cleared successfully!');
-                loadCustomers();
-                loadHotels();
-                loadBookings();
-                updateCustomerDropdown();
-                updateHotelDropdown();
-                updateDashboard();
-            } catch (error) {
-                showMessage('Error clearing data: ' + error.message, 'error');
-            }
-        }
-
-        // Room Type Management
-        function addRoomTypeField() {
-            const container = document.getElementById('room-types-container');
-            const newEntry = document.createElement('div');
-            newEntry.className = 'room-type-entry';
-            newEntry.style.cssText = 'display: grid; grid-template-columns: 2fr 1fr 1fr 60px; gap: var(--space-8); margin-bottom: var(--space-8); align-items: end;';
-            newEntry.innerHTML = `
-                <div class="form-group" style="margin-bottom: 0;">
-                    <label>Room Type Name</label>
-                    <input type="text" class="room-type-name" placeholder="e.g., Deluxe Suite">
-                </div>
-                <div class="form-group" style="margin-bottom: 0;">
-                    <label>Available Rooms</label>
-                    <input type="number" class="room-type-count" min="0" placeholder="0">
-                </div>
-                <div class="form-group" style="margin-bottom: 0;">
-                    <label>Rate ($)</label>
-                    <input type="number" class="room-type-rate" step="0.01" min="0" placeholder="0.00">
-                </div>
-                <button type="button" class="btn btn-danger" onclick="removeRoomType(this)" style="padding: var(--space-8);">✕</button>
-            `;
-            container.appendChild(newEntry);
-        }
-
-        function removeRoomType(button) {
-            const container = document.getElementById('room-types-container');
-            if (container.children.length > 1) {
-                button.closest('.room-type-entry').remove();
-            } else {
-                showMessage('At least one room type entry must remain', 'error');
-            }
-        }
-
-        // Search functionality
-        document.getElementById('search-customers').addEventListener('input', loadCustomers);
-        document.getElementById('search-hotels').addEventListener('input', loadHotels);
-        document.getElementById('search-bookings').addEventListener('input', loadBookings);
-
-        // Initialize
-        initDB().then(() => {
-            loadCustomers();
-            loadHotels();
-            loadBookings();
-            updateCustomerDropdown();
-            updateHotelDropdown();
-            updateDashboard();
-            showMessage('Hotel Booking Management Platform loaded successfully!');
-        });
     </script>
 </body>
 </html>
-
