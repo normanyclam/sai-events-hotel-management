@@ -2,7 +2,7 @@
 
 A web-based hotel room booking management platform with inventory tracking, customer management, and comprehensive reporting. All data is stored locally in your browser - no server required.
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![License](https://img.shields.io/badge/license-GPLv3-blue.svg)
 ![Version](https://img.shields.io/badge/version-1.0.0-green.svg)
 
 ## 🌟 Features
@@ -417,7 +417,8 @@ This is a standalone project, but suggestions are welcome:
 
 ## 📄 License
 
-This project is licensed under the MIT License - feel free to use, modify, and distribute.
+This project is licensed under the GNU General Public License v3.0.  
+See [LICENSE](./LICENSE) for full text.
 
 ## 🔗 Links
 
@@ -468,6 +469,9 @@ Future enhancements under consideration:
 **Version:** 1.0.0  
 **Last Updated:** November 23, 2025  
 **Maintained by:** Your Team
+
+This software is released under GPLv3.  
+You are free to modify, distribute, and use under the terms of the GPLv3 license.
 
 ---
 
